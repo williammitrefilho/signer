@@ -226,7 +226,7 @@ unsigned short free_gerio_client(struct gerio_client *client){
 
 unsigned short gerio_cancelar_tef(struct gerio_transacao *transacao){
     
-    const unsigned char msg_format[] = "000-000 = NCN\r\n001-000 = %d\r\n003-000 = %d\r\n004-000 = 0\r\n706-000 = 4\r\n716-000 = SBMATE AUTOMACAO\r\n733-000 = 100\r\n999-999 = 0\r\n";
+    const unsigned char msg_format[] = "000-000 = NCN\r\n001-000 = %d\r\n004-000 = 0\r\n706-000 = 4\r\n716-000 = SBMATE AUTOMACAO\r\n733-000 = 100\r\n999-999 = 0\r\n";
     FILE *arq = fopen("C:/tef_dial/req/intpos.001", "wb");
     if(arq){
         
@@ -246,7 +246,7 @@ unsigned short gerio_cancelar_tef(struct gerio_transacao *transacao){
 
 unsigned short gerio_confirmar_tef(struct gerio_transacao *transacao){
     
-    const unsigned char msg_format[] = "000-000 = NCN\r\n001-000 = %d\r\n003-000 = %d\r\n004-000 = 0\r\n706-000 = 4\r\n716-000 = SBMATE AUTOMACAO\r\n733-000 = 100\r\n999-999 = 0\r\n";
+    const unsigned char msg_format[] = "000-000 = CNF\r\n001-000 = %d\r\n004-000 = 0\r\n706-000 = 4\r\n716-000 = SBMATE AUTOMACAO\r\n733-000 = 100\r\n999-999 = 0\r\n";
     FILE *arq = fopen("C:/tef_dial/req/intpos.001", "wb");
     if(arq){
         

@@ -17,7 +17,7 @@ DWORD WINAPI ThreadProc1(LPVOID lpParam){
     struct gerio_client *client = (struct gerio_client*)GetProp(janela, "client");
     struct dados_login *dados = (struct dados_login*)GetProp(janela, "dados_login");
     
-    unsigned short ret = gerio_login(client, "gerio.app", "443", dados->usuario, dados->senha);
+    unsigned short ret = gerio_login(client, "127.0.0.1", "443", dados->usuario, dados->senha);
     if(!ret){
     
         if(client->logged_in){
@@ -74,6 +74,7 @@ DWORD WINAPI ThreadProc2(LPVOID lpParam){
                 transacao.status = 9;   
             }
             gerio_set_transacao(client, &transacao);
+			gerio_confirmar_tef(&transacao);
         }
         else if(ret == 2){
         
@@ -83,7 +84,7 @@ DWORD WINAPI ThreadProc2(LPVOID lpParam){
             SetProp(janela, "client", client);
             struct dados_login *dados = (struct dados_login*)GetProp(janela, "dados_login");
     
-            unsigned short ret = gerio_login(client, "gerio.app", "443", dados->usuario, dados->senha);
+            unsigned short ret = gerio_login(client, "127.0.0.1", "443", dados->usuario, dados->senha);
             if(!ret){
             
                 if(client->logged_in){
